@@ -1,0 +1,33 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'application'
+}
+
+group 'pt.fabm'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    vertxVersion = '3.7.0'
+    junitJupiterEngineVersion = '5.4.0'
+}
+application {
+    mainClassName = 'pt.fabm.Main'
+}
+dependencies {
+
+    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
+    implementation "io.vertx:vertx-core:$vertxVersion"
+    implementation "com.opencsv:opencsv:4.6"
+
+    testImplementation "io.vertx:vertx-junit5:$vertxVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterEngineVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitJupiterEngineVersion"
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
